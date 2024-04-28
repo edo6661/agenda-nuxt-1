@@ -14,11 +14,18 @@ export default defineNuxtConfig({
     componentDir: "./components/ui",
   },
   runtimeConfig: {
-    DATABASE_URL: "",
+    database: {
+      url: "",
+    },
   },
   nitro: {
     imports: {
       dirs: ["./prisma"],
     },
   },
+  // routeRules: {
+  //   "/": {
+  //     ssr: false,
+  //   },
+  // },
 });

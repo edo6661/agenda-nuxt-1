@@ -5,19 +5,21 @@ useSeoMeta({
   keywords: "home, page",
 });
 
-const { data, error } = useFetch("/api/yey", {
+const { data, error, refresh } = useFetch("/api/yey", {
   lazy: false,
 });
-watchEffect(() => {
-  console.log(data.value);
-  console.log(error.value);
-});
+const someErrorLogger = (err: unknown) => {
+  console.log(err);
+  console.log(JSON.stringify(err));
+};
 </script>
 <template>
   <div>
     <p>index</p>
     {{ JSON.stringify(data) }}
   </div>
+
+  <FormCreateUser :refresh="refresh" />
 </template>
 
 <style></style>
